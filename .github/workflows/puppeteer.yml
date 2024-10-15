@@ -1,10 +1,13 @@
 name: Puppeteer & Lighthouse 
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Deploy Next.js site to Pages"]
+    types:
+      - completed
 
 jobs:
-  build:
+  run-script:
     runs-on: ubuntu-latest
 
     steps:
